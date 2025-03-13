@@ -1,0 +1,38 @@
+[
+  {
+    "id": "movie-fight-club-1999",
+    "title": "Fight Club (1999)",
+    "description": "An insomniac office worker forms an underground fight club with a charismatic soap salesman, leading to chaos.",
+    "src": "./assets/fc.avif"
+  },
+  {
+    "id": "movie-the-dark-knight-2008",
+    "title": "The Dark Knight (2008)",
+    "description": "Batman faces his greatest challenge as the Joker unleashes chaos and anarchy upon Gotham.",
+    "src": "./assets/tdk.avif"
+  },
+  {
+    "id": "movie-wild-tales-2014",
+    "title": "Wild Tales (2014)",
+    "description": "Six darkly comedic stories of revenge and madness expose the explosive side of human nature.",
+    "src": "./assets/rs.avif"
+  },
+  {
+    "id": "movie-edge-of-tomorrow-2014",
+    "title": "Edge of Tomorrow (2014)",
+    "description": "A soldier trapped in a time loop fights alien invaders, improving with each repeated battle.",
+    "src": "./assets/eot.avif"
+  },
+  {
+    "id": "movie-princess-pop-star-2012",
+    "title": "Princess & PopStar (2012)",
+    "description": "A princess and a pop star swap lives and discover the true meaning of friendship.",
+    "src": "./assets/btpaps.avif"
+  },
+  {
+    "id": "movie-intouchables-2012",
+    "title": "Intouchables (2012)",
+    "description": "An unlikely friendship between a quadriplegic millionaire and his carefree caregiver changes both their lives.",
+    "src": "./assets/ti.avif"
+  }
+]

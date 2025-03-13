@@ -1,0 +1,29 @@
+---
+  import Layout from "@/layouts/Layout.astro"
+---
+<Layout title="404">
+  <img src="./assets/avocat.png" alt="avocat image">
+  <h2>404</h2>
+</Layout>
+
+<style>
+  img {
+    position: absolute;
+    max-width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media (width <= 1111px) {
+      max-width: 270px;
+    }
+  }
+
+  h2 {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 30;
+    font-size: 3vmax;
+  }
+</style>

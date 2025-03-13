@@ -1,0 +1,68 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Films from '@/data/films.json';
+---
+
+<Layout title='Films + View Transitions'>
+  <section>
+    {
+      Films.map((film: any) => {
+        return (
+          <a href={`/${film.id}`} style={`view-transition-name: film-${film.id}`}>
+            <img src={film.src} alt={film.title} />
+            <figcaption>{film.title}</figcaption>
+          </a>
+        );
+      })
+    }
+  </section>
+</Layout>
+
+<style>
+  section {
+    width: 50%;
+    height: 100%;
+    height: max-content;
+    zoom: 0.8;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.3rem;
+    place-items: center;
+
+    @media (width <= 1111px) and (orientation: portrait) {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      place-content: center;
+    }
+    @media (width <= 1111px) and (orientation: landscape) {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      width: 70%;
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      transition: filter 0.5s ease;
+
+      &:hover {
+        filter: contrast(130%);
+      }
+
+      img {
+        min-width: 170px;
+        aspect-ratio: 400 / 560;
+        width: 100%;
+      }
+
+      figcaption {
+        text-align: center;
+        background-color: #000;
+        color: #e9e9e9;
+        padding: 0.5rem;
+        flex-grow: 1;
+        font-size: small;
+      }
+    }
+  }
+</style>

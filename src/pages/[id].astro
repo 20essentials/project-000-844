@@ -1,0 +1,120 @@
+---
+import Films from '@/data/films.json';
+import Layout from '@/layouts/Layout.astro';
+import GlowButton from '@/components/GlowButton.astro';
+
+export async function getStaticPaths() {
+  return Films.map(({ id }) => {
+    return { params: { id } };
+  });
+}
+
+const { id } = Astro.params;
+const filmObject = Films.find(el => el.id === id);
+const { title, id: newId, src, description } = filmObject ?? {};
+---
+
+<Layout title={title || ''}>
+  <style>
+    section {
+      display: flex;
+      width: 60%;
+      gap: 1rem;
+      max-width: 1000px;
+
+      @media (width <= 1111px) and (orientation: portrait) {
+        flex-direction: column;
+        width: 80%;
+      }
+
+      @media (width >= 1900px) {
+        zoom: 1.2;
+      }
+      @media (width >= 3000px) {
+        zoom: 1.7;
+      }
+      @media (width >= 4600px) {
+        zoom: 2.7;
+      }
+      @media (width <= 1300px) and (orientation: landscape) {
+        zoom: 0.9;
+        width: 80%;
+      }
+      @media (width <= 900px) and (orientation: landscape) {
+        zoom: 0.7;
+      }
+      @media (width <= 520px) and (orientation: landscape) {
+        zoom: 0.3;
+      }
+
+      @media (width <= 350px) and (orientation: landscape) {
+        zoom: 0.25;
+      }
+
+      .left {
+        width: 50%;
+
+        img {
+          max-width: 100%;
+
+          transition: filter 0.5s ease;
+
+          &:hover {
+            filter: contrast(130%);
+          }
+        }
+      }
+
+      @media (width <= 1111px) and (orientation: portrait) {
+        .left,
+        .right {
+          width: 100%;
+        }
+
+        .left {
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        padding-right: 1rem;
+        gap: 8px;
+        text-align: center;
+
+        .texture {
+          flex-grow: 1;
+          background-image: url('./assets/black-felt.png');
+          mix-blend-mode: difference;
+        }
+
+        p {
+          text-wrap: balance;
+          font-size: large;
+        }
+
+        .texture {
+        }
+      }
+    }
+  </style>
+  
+  <section>
+    <aside class='left'>
+      <img
+        style={`view-transition-name: film-${newId}`}
+        src={src}
+        alt={`Portada del film ${title}`}
+      />
+    </aside>
+    <aside class='right'>
+      <div class='texture'></div>
+      <h2>{title}</h2>
+      <p>{description}</p>
+      <div class='texture'></div>
+    </aside>
+  </section>
+  <GlowButton />
+</Layout>
